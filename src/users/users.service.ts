@@ -22,8 +22,7 @@ export class UsersService {
     return this.userRepository.findOne(id);
   }
 
-  find(createUserDto: CreateUserDto): Promise<User[]> {
-    const { email } = createUserDto;
+  find(email: string): Promise<User[]> {
     return this.userRepository.find({ email });
   }
 
@@ -34,8 +33,7 @@ export class UsersService {
       throw new NotFoundException(`user with id of ${id} was not found`);
     }
 
-    //Object.assign(user, updateUserDto);
-    const newUser = { ...user, updateUserDto };
+    const newUser: User = { ...user, ...updateUserDto };
 
     return this.userRepository.save(newUser);
   }
