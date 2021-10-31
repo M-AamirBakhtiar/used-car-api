@@ -11,12 +11,12 @@ Content-Type: application/json
 GET http://localhost:3000/auth?email=test2@test2.com
 
 ### Update a user by Id.
-PATCH  http://localhost:3000/auth/1
+PATCH  http://localhost:3000/auth/2
 Content-Type: application/json
 
 {
   "email": "cat@coolcat.com",
-  "password": "456"
+  "password": "999"
 }
 
 ### Delete a user by Id.
