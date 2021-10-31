@@ -1,5 +1,11 @@
-import { ConsoleLogger } from '@nestjs/common';
-import { AfterInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  AfterInsert,
+  AfterRemove,
+  AfterUpdate,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -15,5 +21,10 @@ export class User {
   @AfterInsert()
   logInser() {
     console.log(`Inserted User with ${this.id}`);
+  }
+
+  @AfterUpdate()
+  logUpdate() {
+    console.log(`Updated User with ${this.id}`);
   }
 }
