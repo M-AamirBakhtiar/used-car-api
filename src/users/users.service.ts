@@ -33,9 +33,9 @@ export class UsersService {
       throw new NotFoundException(`user with id of ${id} was not found`);
     }
 
-    const newUser: User = { ...user, ...updateUserDto };
+    Object.assign(user, updateUserDto);
 
-    return this.userRepository.save(newUser);
+    return this.userRepository.save(user);
   }
 
   async remove(id: number) {
