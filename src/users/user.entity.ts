@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ConsoleLogger } from '@nestjs/common';
+import { AfterInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -10,4 +11,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @AfterInsert()
+  logInser() {
+    console.log(`Inserted User with ${this.id}`);
+  }
 }
