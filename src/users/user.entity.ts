@@ -27,4 +27,9 @@ export class User {
   logUpdate() {
     console.log(`Updated User with ${this.id}`);
   }
+
+  @AfterRemove()
+  logRemove() {
+    console.log(`Removed User with ${this.id}`);
+  }
 }
